@@ -1,0 +1,13 @@
+{
+    "name": "Sudoku",
+    "version": "0.0.1",
+    "scripts": {
+        "test": "make .PHONY"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "should": "*",
+        "coffee-script": "1.4.x",
+        "shelljs": "0.1.x"
+    }
+}

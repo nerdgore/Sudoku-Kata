@@ -1,0 +1,5 @@
+--require should
+--ui bdd
+--reporter spec
+--compilers coffee:coffee-script
+--globals config
