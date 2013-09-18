@@ -1,29 +1,24 @@
-REPORTER = html-cov
+NODE_PATH := ${NODE_PATH}:/users/towalter/Projects/Sudoku-Kata/js
 
 clean:
-	rm -rf test/target
 
 setup:
-	mkdir -p test/target/
-	mkdir -p test/reports
-	mkdir -p test/target/specs
-	cp src/* test/target
-	cp test/specs/* test/target/specs
 
 test:
-	@NODE_ENV=test mocha \
-	test/target/specs
+	@NODE_ENV=test mocha
 
 test-w:
 	@NODE_ENV=test mocha \
+	--reporter min \
 	--growl \
 	--watch
 
 cover:
-	coffeeCoverage --initfile test/init.js --exclude specs,test test/target test/target
+	@mkdir -p test/reports
+	coffeeCoverage --initfile test/init.js --exclude specs,test src js
 	@NODE_ENV=test mocha \
-	--reporter $(REPORTER) \
-	test/target/specs \
+	--require test/init.js \
+	--reporter html-cov \
 	> test/reports/index.html
 
 .PHONY: clean setup cover test

@@ -1,4 +1,4 @@
-Board = require "../Board"
+Board = require "board"
 
 describe "A Sudoku Board", ->
   it "should be defined", ->
