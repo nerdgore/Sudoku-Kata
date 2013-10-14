@@ -1,17 +1,18 @@
-NODE_PATH := ${NODE_PATH}:/users/towalter/Projects/Sudoku-Kata/js
+NODE_PATH := ${NODE_PATH}:/users/towalter/Projects/Sudoku-Kata/src
 
 all: cover test
 
 test:
 	@coffee -o js/ -c src/
-	@NODE_ENV=test mocha
+	@NODE_ENV=test mocha \
+	--grep Sudoku \
+	test/specs/*.coffee
 
 test-w:
-	
 	@NODE_ENV=test mocha \
 	--reporter min \
-	--growl \
-	--watch
+	--watch \
+	test/specs/*.coffee
 
 cover:
 	@mkdir -p test/reports
@@ -21,4 +22,4 @@ cover:
 	--reporter html-cov \
 	> test/reports/index.html
 
-.PHONY: all cover test test-w
+.PHONY: all test test-w
