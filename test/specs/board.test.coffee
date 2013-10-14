@@ -1,6 +1,6 @@
 Board = require "board"
 
-describe "A Sudoku Board", ->
+describe "A SudokuBoard", ->
   it "should be defined", ->
     (Board).should.be.defined
 
@@ -28,7 +28,7 @@ describe "canAddNumber", ->
     
     test.board.canAddNumber({row: 2, col: 2}, 1).should.be.false
 
-  it "should not be able to add the same number to another block", ->
+  it "should be able to add the same number to another block", ->
     test.board.addNumber({row: 1, col: 1}, 1)
     
     test.board.canAddNumber({row: 4, col: 2}, 1).should.be.true
